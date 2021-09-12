@@ -17,6 +17,11 @@ const getDataFromApi = async (apiRoute, link) => {
     return data
 }
 
+// video
+// <video controls class="vid">
+//     <source src="${data.download_url}" type="video/mp4">
+// </video> 
+
 // displaying the tweet's info
 const showResult = (data) => {
 
@@ -24,13 +29,9 @@ const showResult = (data) => {
         <div class="result">
             <img src="${data.video_img}" alt="">
 
-            <video controls class="vid">
-                <source src="${data.download_url}" type="video/mp4">
-            </video> 
-
             <span class="duration">Duration: ${data.duration}</span>
 
-            <a href="${data.download_url}" target="_blank" download><button class="download-btn">Download Vid</button></a>
+            <a href="${data.download_url}" download><button class="download-btn">Download Vid</button></a>
 
         </div>
     `
@@ -49,16 +50,10 @@ form.addEventListener('submit', async (e) => {
     if (link){
         const data = await getDataFromApi('/send-link', link)
 
-        console.log(data)
-
         // showing the data to the html
         showResult(data)
 
         // resetting 
         linkInput.value = ""
-
-
     }
-
-
 })
