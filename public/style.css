@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:ital,wght@1,300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #22254b;
+    font-family: "Georama", sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search-link {
+    padding: 5px;
+    width: 400px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.result img {
+    width: 50%;
+    height: 50%;
+}
+
+.duration {
+    color: white;
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+
+.download-btn {
+    font-size: 1.5rem;
+    padding: 5px;
+}
