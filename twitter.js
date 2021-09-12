@@ -27,12 +27,19 @@ const getDownloadUrl = (data) => {
     // getting all the variants
     const media = data.extended_entities.media[0]
 
+    //console.dir(media, {depth: null})
+
     // important data
     const mediaThmp = media.media_url
     const vidDurationMill = media.video_info.duration_millis 
     const vidDurationMins = millisToMinutes(vidDurationMill)
 
-    const videoVars = media.video_info.variants
+    const allQualities = media.video_info.variants
+
+    const videoVars = []
+    allQualities.forEach(q => {
+        if (q.bitrate) videoVars.push(q)   
+    })
 
     const bestQuality = videoVars.reduce((maxBit, vid) => maxBit.bitrate > vid.bitrate ? maxBit : vid)
 
